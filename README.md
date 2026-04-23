@@ -1,17 +1,14 @@
-# local_donor_finder
+# LifeLink: Real-Time Blood Assistance Network 
 
-A new Flutter project.
+LifeLink is a Flutter-based emergency response application designed to bridge the gap between blood seekers and donors. 
 
-## Getting Started
+##  Key Features
+* **One-Tap SOS** :  Instantly broadcast a blood request with GPS coordinates.
+* **Live Emergency Map** : View all active blood requests in your area in real-time.
+* **Direct Help** : Integrated "I Can Help" feature to connect donors to seekers via phone instantly.
+* **Firebase Backend** :  Real-time data synchronization for immediate response.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+##  Tech Stack
+* **Frontend** : Flutter & Dart
+* **Backend** : Firebase Firestore
+* **Maps** : Google Maps SDK
