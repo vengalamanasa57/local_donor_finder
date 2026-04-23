@@ -1,6 +1,5 @@
 // ============================================================
 // LOCAL DONOR FINDER — widget_test.dart
-// Placeholder test to allow building while using Firebase/Maps
 // ============================================================
 
 import 'package:flutter_test/flutter_test.dart';
