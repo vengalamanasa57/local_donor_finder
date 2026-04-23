@@ -12,5 +12,5 @@ LifeLink is a Flutter-based emergency response application designed to bridge th
 * **Frontend** : Flutter & Dart
 * **Backend** : Firebase Firestore
 * **Maps** : Google Maps SDK
-
+## 
 * **Note on Geolocation** : The current MVP is configured for the Warangal regional corridor to demonstrate stable real-time data flow. While the core engine supports global GPS, we have implemented a regional label for the demo to showcase verified local emergency response.
