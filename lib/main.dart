@@ -545,7 +545,7 @@ class _SOSBottomSheetState extends State<_SOSBottomSheet> {
         name: name,
         bloodType: _selectedBloodType,
         location: location,
-        address: "Warangal", // Updated text
+        address: "Current Location", // Updated text
         phoneNumber: "9876543210",
       );
 
