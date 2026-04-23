@@ -202,7 +202,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Donor Finder'),
+        title: const Text('LifeLink - Local Donor Finder'),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(24),
           child: Padding(
