@@ -51,7 +51,7 @@ class _SOSMapScreenState extends State<SOSMapScreen> {
   final name = data['patientName'] ?? data['name'] ?? 'Unknown';
   final bloodType = data['bloodType'] ?? '?';
 
-  final phone = data['phoneNumber'] ?? '9876543210'; 
+  final phone = data['phoneNumber'] ?? doc['phone']?? ''; 
 
   newMarkers.add(Marker(
     markerId: MarkerId(doc.id),

@@ -31,6 +31,7 @@ class SOSRequest {
   final String name;
   final String bloodType;
   final GeoPoint location;
+  final String phoneNumber;
   final Timestamp timestamp;
   final String address;
 
@@ -39,7 +40,9 @@ class SOSRequest {
     required this.name,
     required this.bloodType,
     required this.location,
+    required this.phoneNumber,
     required this.timestamp,
+
     this.address = "Locating...",
   });
 
@@ -49,6 +52,7 @@ class SOSRequest {
       name: map['patientName'] as String? ?? map['name'] as String? ?? 'Urgent Request',
       bloodType: map['bloodType'] as String? ?? 'A+',
       location: map['location'] as GeoPoint? ?? const GeoPoint(0, 0),
+      phoneNumber: map['phoneNumber'] ?? map['phone'] ?? '',
       timestamp: map['timestamp'] as Timestamp? ?? Timestamp.now(),
       address: map['address'] as String? ?? "Location pending...",
     );
@@ -72,7 +76,7 @@ Future<String> submitSOSRequest({
   required String bloodType,
   required GeoPoint location,
   required String address,
-  String phoneNumber = "9876543210",
+  required String phoneNumber,
 }) async {
   final docRef = await FirebaseFirestore.instance
       .collection('emergencies')
@@ -480,6 +484,7 @@ class _SOSBottomSheet extends StatefulWidget {
 
 class _SOSBottomSheetState extends State<_SOSBottomSheet> {
   final _nameController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
   String _selectedBloodType = 'A+';
   bool _isSubmitting = false;
 
@@ -546,7 +551,7 @@ class _SOSBottomSheetState extends State<_SOSBottomSheet> {
         bloodType: _selectedBloodType,
         location: location,
         address: "Current Location", // Updated text
-        phoneNumber: "9876543210",
+        phoneNumber: _phoneController.text,
       );
 
       _success = true; // only set true after successful Firestore write
@@ -642,6 +647,29 @@ class _SOSBottomSheetState extends State<_SOSBottomSheet> {
               ),
             ),
           ),
+          const SizedBox(height: 16), // Adds a little space between the fields
+          TextField(
+          controller: _phoneController,
+          keyboardType: TextInputType.phone,
+          decoration: InputDecoration(
+          hintText: 'e.g. 9876543210',
+          prefixIcon: const Icon(Icons.phone_outlined),
+          filled: true,
+          fillColor: const Color(0xFFFFF8F8),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(color: Color(0xFFF5C4C4)),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(color: Color(0xFFF5C4C4)),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(color: Color(0xFFC62828), width: 1.5),
+          ),
+        ),
+        ),
           const SizedBox(height: 18),
 
           const Text('Blood type needed',
@@ -878,7 +906,7 @@ class _PostRequestScreenState extends State<PostRequestScreen> {
                       'status': 'active',
                       'hospitalName': hospitalController.text.trim(),
                       'units': unitsController.text.trim(),
-                      'phone': phoneController.text.trim(), // Added phone
+                      'phoneNumber': phoneController.text.trim(), // Added phone
                     }).timeout(const Duration(seconds: 10));
 
                     if (!mounted) return;
@@ -990,7 +1018,6 @@ class ProfileScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12)),
                 ),
                 onPressed: () {
-                  // TODO: FirebaseAuth.instance.signOut()
                 },
               ),
             ),
