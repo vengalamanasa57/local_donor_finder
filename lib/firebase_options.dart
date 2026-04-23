@@ -21,10 +21,7 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for android - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return android;
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
@@ -59,6 +56,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '750300984684',
     projectId: 'local-donor-finder',
     storageBucket: 'local-donor-finder.firebasestorage.app',
+    androidClientId: '750300984684-ouse58ohse88map2p1kliengkvpqip1n.apps.googleusercontent.com',
     iosBundleId: 'com.example.localDonorFinder',
   );
 
@@ -68,6 +66,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '750300984684',
     projectId: 'local-donor-finder',
     storageBucket: 'local-donor-finder.firebasestorage.app',
+    androidClientId: '750300984684-ouse58ohse88map2p1kliengkvpqip1n.apps.googleusercontent.com',
     iosBundleId: 'com.example.localDonorFinder',
   );
 
@@ -80,4 +79,13 @@ class DefaultFirebaseOptions {
     storageBucket: 'local-donor-finder.firebasestorage.app',
     measurementId: 'G-FZCV1JJG9Z',
   );
+
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyCN2fHkR2xn8y99xZcjD4UeThFi4oprXgw',
+    appId: '1:750300984684:android:e000a162e500efcd7d2f49',
+    messagingSenderId: '750300984684',
+    projectId: 'local-donor-finder',
+    storageBucket: 'local-donor-finder.firebasestorage.app',
+  );
+
 }
